@@ -4,6 +4,8 @@ class CreateMonologueUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
+      t.string :img_url
+      t.string :position
 
       t.timestamps
     end
