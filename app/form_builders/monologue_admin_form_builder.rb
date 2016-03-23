@@ -1,6 +1,6 @@
 class MonologueAdminFormBuilder < ActionView::Helpers::FormBuilder
   delegate :content_tag, :tag, to: :@template
-  
+
   %w[text_field text_area password_field collection_select select file_field].each do |method_name|
     define_method(method_name) do |name, *args|
       content_tag :div, class:  "field" do
@@ -54,9 +54,9 @@ class MonologueAdminFormBuilder < ActionView::Helpers::FormBuilder
       required = object.class.validators_on(name).any? { |v| v.kind_of? ActiveModel::Validations::PresenceValidator }
       if options[:id]
         label(name, options[:label], class:  ("required" if required), for: options[:id])
-      else  
+      else
         label(name, options[:label], class:  ("required" if required))
-      end  
+      end
     end
 
     def objectify_options(options)
